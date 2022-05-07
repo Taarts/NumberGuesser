@@ -33,53 +33,63 @@ namespace NumberGuesser
             var UserSays = Console.ReadLine();
 
             // If N:
+            // while (UserSays != "Y")
             if (UserSays == "N")
-            {
-                // #Filter
+
+            {   // #Filter
+                // - Is your number Higher or Lower
+                // - Type "H" or "L"
                 Console.WriteLine();
                 Console.WriteLine("Is your number HIGHER or LOWER? ");
                 Console.WriteLine("Type 'H' if HIGHER, 'L' if LOWER.  ");
                 var answer = Console.ReadLine();
+
+
+                switch (answer)
                 //      IF H
-                if (answer == "H")
                 {
-                    var guess = (mid + max) / 2;
-                    Console.WriteLine();
-                    Console.WriteLine($"Is your number {guess}? ");
+                    case "H":
+                        var hGuess = (mid + max) / 2;
+                        Console.WriteLine();
+                        Console.WriteLine($"Is your number {hGuess}? ");
+                        break;
+
+                    //  if L
+                    case "L":
+
+                        var lGuess = (mid + min) / 2;
+                        Console.WriteLine();
+                        Console.WriteLine($"Is your number {lGuess}? ");
+                        break;
 
 
-
-                    // the NewMidPoint is now #Guess
+                    // #GUESS = HighNum
+                    // BottomMarker = LowNum
+                    // MidPoint is now the #Guess
                     // GoTO #Guess
+                    // Else
+                    case "Y":
 
+                        Console.WriteLine();
+                        Console.WriteLine("Excellent! It's great to be correct!");
+                        Console.WriteLine("Wanna play again?");
+                        break;
+
+                    default:
+                        Console.WriteLine();
+                        Console.WriteLine("That's not what I asked for, I'm not playing anymore");
+                        Console.WriteLine();
+                        break;
                 }
-                //         else if (UserSays == L)
-                //         {
-                //             Guess = max;
-                //               var NewGuess = (min / 2 );
-                //               Console.WriteLine($"Is your number {NewGuess}? ")
+
+                // If Y
+                // GOTO #Request
+                // If N
+                // - OK thanks for playing, Goodbye!
 
             }
-            // - Is your number Higher or Lower
-            // - Type "H" or "L"
-            //  
-            //  Else if L
-            // #GUESS = HighNum
-            // BottomMarker = LowNum
-            // MidPoint is now the #Guess
-            // GoTO #Guess
-            // Else
-            // If Y:
-            // - Excellent! It's great to be correct!
-            // - Wanna play again?
-            // If Y
-            // GOTO #Request
-            // If N
-            // - OK thanks for playing, Goodbye!
 
         }
-
-
     }
 }
 
