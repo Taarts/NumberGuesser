@@ -5,11 +5,11 @@ the user should not reveal the number
 the user will be truthful with their answers
 they can give the input Y/N, H/L
 
-## If guess is HIGH (516), we use the Guess (516) and add the ## previousLOW (512) and divide by 2. ← algorithm 
+## If new guess is prompted to be HIGHer, we use the Guess (516) and add the ## previousLOW (512) and divide by 2. ← algorithm
 
-## If guess is LOW (514), we use the guess (514) and add the ## previous HIGH (516) and divide by 2. ← algorithm
+## If new guess needs to be LOWER (514), we use the guess (514) and add the ## previous HIGH (516) and divide by 2. ← algorithm
 
-#Example: 
+#Example:
 Guess: 610
 Computer: 512?
 H
@@ -32,6 +32,7 @@ Instructions for user
 Boolean if/else
 
 # NumberGuesser
+
 (Divide & conquer algorithm)
 #Presentation
 Min = 1
@@ -47,29 +48,39 @@ Max = 1024
 - Is your number {Guess}?
   #Confirm
   Did they type something else?
+
   # Y/N
+
       Else #Confirm
       GOTO #END
+
   # N:
+
   #Filter
+
   - Is your number Higher or Lower
+
   # H/L
-    **Did they type something else?
-    **GOTO #END
-    IF H
-    # Guess;
-    LowGuess = (Guess + previousHigh) / 2
 
-    - Is your number {NewGuess}?
+  **Did they type something else?
+  **GOTO #END
+  IF H
 
-    Else
-    #GUESS 
-    HighGuess = (Guess + previousLow) / 2
+  # Guess;
+
+  LowGuess = (Guess + previousHigh) / 2
+
+  - Is your number {NewGuess}?
+
+  Else
+  #GUESS
+  HighGuess = (Guess + previousLow) / 2
 
   - Is your number NewGuess?
-      GoTO #Guess
-    
-      Else Y:
+    GoTO #Guess
+
+    Else Y:
+
 - Excellent! It's great to be correct!
 - Wanna play again?
   If Y
